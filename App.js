@@ -11,7 +11,11 @@ import ProductsScreen from './screens/ProductsScreen'
 import CarScreen from './screens/CarScreen'
 import DetailScreen from './screens/DetailScreen'
 import PedidoScreen from './screens/PedidoScreen'
+//ULTIMAS SCREENS AÑADIDAS
+import CanjearScreen from './screens/CanjearScreen'
+import ProfileScreen from './screens/ProfileScreen'
+import ConfirmacionScreen from './screens/ConfirmacionScreen'
 
 export default App = () => {
-  return <PedidoScreen />
+  return <ConfirmacionScreen />
 }
