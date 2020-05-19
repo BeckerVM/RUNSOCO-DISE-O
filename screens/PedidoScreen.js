@@ -8,7 +8,6 @@ import {
   Image
 } from 'react-native'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen'
-import Icon from 'react-native-vector-icons/dist/FontAwesome5'
 
 //SOMBRA DE LAS TARJETAS
 const shadow = {
@@ -26,17 +25,18 @@ const shadow = {
 const Pedido = () => {
   return (
     <View MENSAJE="ESTA ES UN CARD">
+        <View style={{ marginTop: wp(6), flexDirection: 'row', justifyContent: 'center', width: wp(95), alignSelf: 'center' }}>
+          <TouchableOpacity style={[styles.btn, { backgroundColor: '#00a680', marginRight: wp(5), borderRadius: 0 }]}>
+            <Text style={{ color: '#fff' , fontSize: hp(2.2) }}>Mi pedido</Text>
+          </TouchableOpacity>
+        </View>
         <View style={styles.card}>
-          <Text style={{ 
-            position: 'absolute', left: wp(-14), top: wp(3),
-            fontSize: hp(1.8), fontWeight: 'bold',
-            borderRadius: wp(50), backgroundColor: '#00a680', color: '#fff', width: wp(9), height: wp(9), textAlign: 'center', lineHeight: wp(8)}}>N</Text>
-          <View style={styles.cardContent}>
+          <View>
             <View style={{ paddingVertical: wp(2), flexDirection: 'row', alignItems: 'center', borderBottomWidth: wp(.2), borderBottomColor: '#999'}}>
-              <Text style={{ color: '#00a680', fontWeight: 'bold', fontSize: hp(1.8), marginRight: wp(2) }}>
+              <Text style={{ color: '#00a680', fontSize: hp(2.3), marginRight: wp(2) }}>
                 CODIGO
               </Text>
-              <Text>1</Text>
+              <Text style={{ fontSize: hp(2.2) }}>1</Text>
             </View>
             <View MENSAJE="COMIENZA LA TABLA, ESTO SOLO ES UN MENSAJE">
               <View MENSAJE="EL HEAD" style={{ flexDirection: 'row' }}>
@@ -55,45 +55,42 @@ const Pedido = () => {
               </View>
             </View>
             <View MENSAJE="DETALLE DE PEDIDO">
-              <Text style={{ color: '#00a680', fontWeight: 'bold', marginBottom: wp(1)}}>Detalle de Pago</Text>
+              <Text style={{ color: '#00a680', marginBottom: wp(1), fontSize: hp(1.9) }}>Detalle de Pago</Text>
               <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: wp(1) }}>
-                <Text>Pedido</Text> 
-                <Text>S./ 165</Text>
+                <Text style={styles.text}>Pedido</Text> 
+                <Text style={styles.text}>S./ 165</Text>
               </View>
               <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: wp(1) }}>
-                <Text>Delivery</Text> 
+                <Text style={styles.text}>Delivery</Text> 
                 <Text>S./ 5</Text>
               </View>
               <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: wp(1) }}>
-                <Text>Total a pagar</Text> 
-                <Text>S./ 175</Text>
+                <Text style={styles.text}>Total a pagar</Text> 
+                <Text style={styles.text}>S./ 175</Text>
               </View>
             </View>
             <View MENSAJE="INFORMACION DE PEDIDO">
-              <Text style={{ color: '#00a680', fontWeight: 'bold', marginBottom: wp(1)}}>Información del pedido</Text>
+              <Text style={{ color: '#00a680', marginBottom: wp(1), fontSize: hp(1.9) }}>Información del pedido</Text>
               <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: wp(1) }}>
-                <Text>Lugar</Text> 
-                <Text>Pizzeria EL HORCON</Text>
+                <Text style={styles.text}>Lugar</Text> 
+                <Text style={styles.text}>Pizzeria EL HORCON</Text>
               </View>
               <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: wp(1) }}>
-                <Text>Av. que te importa ctm</Text> 
-                <Text>S./ 5</Text>
+                <Text style={styles.text}>Av. que te importa ctm</Text> 
+                <Text style={styles.text}>S./ 5</Text>
               </View>
               <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: wp(1) }}>
-                <Text>Estador</Text> 
-                <Text>No cancelado</Text>
+                <Text style={styles.text}>Estador</Text> 
+                <Text style={styles.text}>No cancelado</Text>
               </View>
             </View>
           </View>
-          <View style={styles.lineBlue}></View>
           <View style={styles.lineGreen}></View> 
+          <View style={styles.lineBlue}></View> 
         </View>
-        <View style={{ marginTop: wp(6), flexDirection: 'row', justifyContent: 'space-between' }}>
-          <TouchableOpacity style={[styles.btn, { backgroundColor: '#1B5050', marginLeft: wp(19) }]}>
-            <Text style={{ color: '#fff' , fontSize: hp(1.5), fontWeight: 'bold' }}>CANCELAR</Text>
-          </TouchableOpacity>
+        <View style={{ marginTop: wp(6), flexDirection: 'row', justifyContent: 'center', width: wp(95), alignSelf: 'center' }}>
           <TouchableOpacity style={[styles.btn, { backgroundColor: '#00a680', marginRight: wp(5) }]}>
-            <Text style={{ color: '#fff' , fontSize: hp(1.5), fontWeight: 'bold' }}>CONTINUAR</Text>
+            <Text style={{ color: '#fff' , fontSize: hp(2.2) }}>Continuar</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -104,12 +101,9 @@ const Pedido = () => {
 const PedidoScreen = () => {
    return (
     <View style={{ position: 'relative', flex: 1, paddingVertical: wp(1) }}>
-      <View style={{ position: 'absolute', width: wp(.5), height: hp(100), backgroundColor: '#1B5050', left: wp(6), top: wp(0)}}></View>
       <FlatList 
         data={[
-          { id: '1', title: 'Pedido 1' },
-          { id: '2', title: 'Pedido 1' },
-          { id: '3', title: 'Pedido 1' },
+          { id: '1', title: 'Pedido 1' }
         ]}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => 
@@ -122,40 +116,41 @@ const PedidoScreen = () => {
 
 const styles = StyleSheet.create({
   card: {
-    marginTop: wp(4),
     backgroundColor: '#fff',
-    width: wp(82),
+    width: wp(95),
     ...shadow,
-    alignSelf: 'flex-end',
     padding: wp(3),
     borderRadius: wp(.5),
     position: 'relative',
-    marginRight: wp(2)
+    alignSelf: 'center',
+    marginTop: wp(6)
   },
   lineBlue: { 
     width: wp(.4), backgroundColor: '#1B5050', height: wp(6),
     position: 'absolute',
-    bottom: wp(-6),
-    left: wp(13) 
+    top: wp(-6),
+    left: wp(45) 
   },
   lineGreen: { 
     position: 'absolute',
     width: wp(.4), backgroundColor: '#00a680', height: wp(6),
     bottom: wp(-6),
-    left: wp(69) 
+    left: wp(45) 
   },
-  btn: { borderRadius: wp(1), width: wp(20), padding: wp(2), alignItems: 'center' },
+  btn: { paddingVertical: wp(2), paddingHorizontal: wp(10), alignItems: 'center' },
   headCol: {
     flex: 1,
     padding: wp(1),
-    fontWeight: 'bold',
-    fontSize: hp(1.6),
+    fontSize: hp(1.9),
     color: '#00a680',
   },
   bodyCol: {
     flex: 1,
-    fontSize: hp(1.7),
+    fontSize: hp(1.9),
   },
+  text: {
+    fontSize: hp(1.9)
+  }
 })
 
 export default PedidoScreen

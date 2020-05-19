@@ -1,7 +1,18 @@
 import React from 'react'
-import { View, Text, ScrollView, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native'
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import Icon from 'react-native-vector-icons/dist/FontAwesome5'
+
+const shadow = {
+  shadowColor: "#000",
+  shadowOffset: {
+  	width: 0,
+	  height: 1,
+  },
+  shadowOpacity: 0.18,
+  shadowRadius: 1.00, 
+  elevation: 1
+}
 
 const CategoriesScreen = () => {
   return (
@@ -9,17 +20,11 @@ const CategoriesScreen = () => {
       <View style={styles.containerHeader}>
         <Text style={styles.logo}></Text>
       </View>
-      <View style={styles.containerSearch}>
-        <Icon
-          style={styles.iconSearch}
-          name="search" 
-        />
-        <TextInput
-          style={styles.inputSearch}
-          placeholder="Buscar lo que necesitas"
-          placeholderTextColor='#999'
-        />
-      </View>
+  
+      <TouchableOpacity style={styles.containerBtn}>
+        <Text style={{ fontSize: hp(2.2), color: '#00a680' }}>Elije una categoría</Text>
+      </TouchableOpacity>
+     
       <View style={styles.containerMenu}>
         <View style={styles.containerMenuGrid}>
           <TouchableOpacity style={[styles.btnCategory, { marginTop: hp(1)}]}>
@@ -77,21 +82,18 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#fff'
   },//BUSCADOR
-  containerSearch: {
+  containerBtn: {
     backgroundColor: '#fff',
-    width: wp(90),
+    width: wp(70),
     alignSelf: 'center',
     flexDirection: 'row',
     alignItems: 'center',
-    borderRadius: wp(2),
+    borderRadius: wp(.8),
     paddingHorizontal: wp(2),
-    marginBottom: hp(20)
-  },
-  inputSearch: {
-    width: wp(80),
-    paddingHorizontal: wp(2),
-    fontSize: hp(2),
-    paddingVertical: hp(1.5)
+    marginBottom: hp(20),
+    padding: wp(2.5), 
+    paddingVertical: wp(3),
+    justifyContent: 'center'
   },
   iconSearch: {
     fontSize: hp(1.8),
@@ -109,6 +111,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around'
   },
   btnCategory: {
+    ...shadow,
     backgroundColor: '#fff', width: wp(23), height: hp(13), borderRadius: wp(80), alignItems: 'center', justifyContent: 'center' 
   },
   imageMenu: {

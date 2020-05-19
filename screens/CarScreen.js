@@ -38,10 +38,10 @@ const CarScreen = () => {
   return (
     <View>
       <View style={{ marginVertical: wp(5), backgroundColor: '#ECF8F5', ...shadow, width: wp(60), padding: wp(7), alignItems: 'center', alignSelf: 'center' }}>
-        <Text style={{ color: '#00a680', fontWeight: 'bold', fontSize: hp(2) }}>PIZZERÍA - EL HORCON</Text>
+        <Text style={{ color: '#00a680', fontWeight: 'bold', fontSize: hp(2.3) }}>PIZZERÍA - EL HORCON</Text>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <Icon name="clock" style={{ fontSize: hp(2), marginRight: wp(2) }}/>
-          <Text style={{ fontWeight: 'bold', fontSize: hp(1.8)}}>10:00 a.m a 09.00 p.m</Text>
+          <Icon name="clock" style={{ fontSize: hp(2.2), marginRight: wp(2) }}/>
+          <Text style={{ fontWeight: 'bold', fontSize: hp(2.2)}}>10:00 a.m a 09.00 p.m</Text>
         </View>
       </View>
       <FlatList
@@ -62,10 +62,10 @@ const CarScreen = () => {
       <View style={{ marginBottom: wp(8), position: 'relative', padding: wp(3), paddingBottom: wp(10), backgroundColor: '#fff', ...shadow, marginTop: wp(3), width: wp(95), alignSelf: 'center' }}>
         <View MENSAJE="COMIENZA LA TABLA, ESTO SOLO ES UN MENSAJE">
           <View style={{ flexDirection: 'row', backgroundColor: '#00a680' }}>
-            <Text style={styles.headCol}>PRODUCTO</Text>
-            <Text style={styles.headCol}>PRECIO</Text>
-            <Text style={styles.headCol}>CANTIDAD</Text>
-            <Text style={styles.headCol}>SUBTOTAL</Text>
+            <Text style={styles.headCol}>Producto</Text>
+            <Text style={styles.headCol}>Precio</Text>
+            <Text style={styles.headCol}>Cantidad</Text>
+            <Text style={styles.headCol}>Subtotal</Text>
           </View>
           <View>
             <View style={{ flexDirection: 'row' }}>
@@ -73,23 +73,23 @@ const CarScreen = () => {
               <Text style={styles.bodyCol}>70.00</Text>
               <View style={[styles.bodyCol, { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-around' }]}>
                 <TouchableOpacity
-                  style={{ backgroundColor: '#00a680', width: wp(5), alignItems: 'center' }}
+                  style={{ backgroundColor: '#00a680', width: wp(9), height: wp(9), alignItems: 'center', justifyContent: 'center', borderRadius: wp(2) }}
                 >
-                  <Text style={{ fontSize: hp(2.2), color: '#fff' }}>-</Text>
+                  <Icon name="minus" style={{ fontSize: hp(2.2), color: '#fff' }}/>
                 </TouchableOpacity>
-                <Text>1</Text>
+                <Text style={{ marginHorizontal: wp(5), fontSize: hp(2), alignSelf: 'center' }}>1</Text>
                 <TouchableOpacity
-                  style={{ backgroundColor: '#00a680', width: wp(5), alignItems: 'center' }}
+                  style={{ backgroundColor: '#00a680', width: wp(9), height: wp(9), alignItems: 'center', justifyContent: 'center', borderRadius: wp(2) }}
                 >
-                  <Text style={{ fontSize: hp(2.2), color: '#fff' }}>+</Text>
+                  <Icon name="plus" style={{ fontSize: hp(2.2), color: '#fff' }}/>
                 </TouchableOpacity>
               </View>
               <View style={[styles.bodyCol, { flexDirection: 'row', alignItems: 'flex-start'}]}>
-                <Text style={{ marginRight: wp(2)}}>70.00</Text>
+                <Text style={{ marginRight: wp(2), fontSize: hp(2), alignSelf: 'center'}}>70.00</Text>
                 <TouchableOpacity
-                  style={{ backgroundColor: '#00a680', width: wp(8), alignItems: 'center', paddingVertical: wp(.9)  }}
+                  style={{ backgroundColor: '#00a680', width: wp(9), height: wp(9), alignItems: 'center', justifyContent: 'center', borderRadius: wp(2) }}
                 >
-                  <Icon name="trash" style={{ fontSize: hp(1.8), color: '#fff' }}/>
+                  <Icon name="trash" style={{ fontSize: hp(2.2), color: '#fff' }}/>
                 </TouchableOpacity>
               </View>
             </View>
@@ -109,25 +109,25 @@ const CarScreen = () => {
         </View>
         <View 
           style={{ 
-            position: 'absolute', width: wp(.4), backgroundColor: '#1B5050', height: wp(8),
+            position: 'absolute', width: wp(.6), backgroundColor: '#1B5050', height: wp(8),
             bottom: wp(-8),
-            left: wp(12) 
+            left: wp(19) 
           }}
           ></View>
         <View 
           style={{ 
-            position: 'absolute', width: wp(.4), backgroundColor: '#00a680', height: wp(8),
+            position: 'absolute', width: wp(.6), backgroundColor: '#00a680', height: wp(8),
             bottom: wp(-8),
-            left: wp(82) 
+            left: wp(74) 
           }}
           ></View>
       </View>
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: wp(5) }}>
-        <TouchableOpacity style={{ backgroundColor: '#1B5050', padding: wp(2) }}>
-          <Text style={{ color: '#fff' , fontSize: hp(1.8), fontWeight: 'bold' }}>CANCELAR</Text>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: wp(7) }}>
+        <TouchableOpacity style={{ backgroundColor: '#1B5050', padding: wp(2), paddingHorizontal: wp(8), borderRadius: wp(2), justifyContent: 'center' }}>
+          <Text style={{ color: '#fff' , fontSize: hp(2), fontWeight: 'bold' }}>Cancelar</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{ backgroundColor: '#00a680', padding: wp(2) }}>
-          <Text style={{ color: '#fff' , fontSize: hp(1.8), fontWeight: 'bold' }}>CONTINUAR</Text>
+        <TouchableOpacity style={{ backgroundColor: '#00a680', padding: wp(3), paddingHorizontal: wp(8), borderRadius: wp(2), justifyContent: 'center' }}>
+          <Text style={{ color: '#fff' , fontSize: hp(2), fontWeight: 'bold' }}>Continuar</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -144,12 +144,12 @@ const styles = StyleSheet.create({
     padding: wp(2),
     fontWeight: 'bold',
     color: '#fff',
-    fontSize: hp(1.8)
+    fontSize: hp(2)
   },
   bodyCol: {
     flex: 1,
     padding: wp(2),
-    fontSize: hp(1.8),
+    fontSize: hp(2),
     borderBottomWidth: wp(.2),
     borderColor: '#ccc'
   }

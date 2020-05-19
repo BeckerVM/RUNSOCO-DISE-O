@@ -5,17 +5,22 @@ import {
 } from 'react-native'
 
 //SCREENS
-import CategoriesScreen from './screens/CategoriesScreen'
-import BussinessScreen from './screens/BussinesScreen'
-import ProductsScreen from './screens/ProductsScreen'
-import CarScreen from './screens/CarScreen'
 import DetailScreen from './screens/DetailScreen'
-import PedidoScreen from './screens/PedidoScreen'
+
 //ULTIMAS SCREENS AÑADIDAS
 import CanjearScreen from './screens/CanjearScreen'
 import ProfileScreen from './screens/ProfileScreen'
 import ConfirmacionScreen from './screens/ConfirmacionScreen'
 
+//SCREENS MODIFICADAS EL  19-05-2020
+import ProductsScreen from './screens/ProductsScreen'
+import BussinessScreen from './screens/BussinesScreen'
+import CarScreen from './screens/CarScreen'
+import PedidoScreen from './screens/PedidoScreen'
+import CategoriesScreen from './screens/CategoriesScreen'
+//ULTIMA SCREEN AÑADIDA
+import MessageScreen from './screens/MessageScreen'
+
 export default App = () => {
-  return <ConfirmacionScreen />
+  return <MessageScreen />
 }

@@ -31,7 +31,7 @@ const data = [
     title: 'Pizzería El HORCON',
   },
   {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    id: '2',
     title: 'Pizzería EL HORNITO',
   },
   {
@@ -51,25 +51,36 @@ const data = [
 //COMPONENTE
 const Product = ({ product }) => {
   return (
-    <View style={{ borderRadius: wp(1), paddingTop: wp(6), paddingBottom: wp(2), paddingHorizontal: wp(2.4), backgroundColor: '#fff', marginBottom: wp(2), ...shadow, position: 'relative' }}>
+    <View style={[
+      { borderRadius: wp(1), paddingTop: wp(6), paddingBottom: wp(2), paddingHorizontal: wp(2.4), backgroundColor: '#fff', marginBottom: wp(2), ...shadow, position: 'relative' }
+      , product.id ===  '2' ? styles.productSelected : null // PARA CAMBIAR EL COLOR CUANDO SE SELECCIONA EL PRODUCT
+    ]}>
       <Text style={{ position: 'absolute', backgroundColor: '#00a680', color: '#fff', paddingVertical: wp(.3), paddingHorizontal: wp(3) }}>Combo</Text>
       <View style={{ flexDirection: 'row', marginBottom: wp(1) }}>
-        <View style={{ width: wp(30), backgroundColor: 'crimson' }}>
+        <View style={{ width: wp(25), }}>
           <Image style={{ height: wp(24), width: '100%' }} source={{ uri: 'https://www.laespanolaaceites.com/wp-content/uploads/2019/06/pizza-con-chorizo-jamon-y-queso-1080x671.jpg' }} />
         </View>
-        <View style={{ paddingLeft: wp(4.5)}}>
-          <Text style={{ color: '#00a680', fontSize: hp(2), fontWeight: 'bold', marginBottom: wp(1.5) }}>Pizza Linda Andahuaylina</Text>
-          <Text style={{ fontSize: hp(1.8)}}>Queso, Tomate, Brocoli y Jr se la comedsaaaaaaaaaaaaaaaaaaaa</Text>
+        <View style={{ paddingLeft: wp(3.5), flexDirection: 'row' }}>
+          <View style={{ width: wp(50) }}>
+            <Text style={{ color: '#00a680', fontSize: hp(2.3), fontWeight: 'bold', marginBottom: wp(1.5) }}>Pizza Linda Andahuaylina</Text>
+            <Text style={{ fontSize: hp(1.9)}}>Queso, Tomate, Brocoli y Jr se la comedsaaaaaaaaaaaaaaaaaaaa</Text>
+          </View>
+          {
+            product.id === '2' // CAMBIO DE BOTONES
+            ?
+              <TouchableOpacity style={styles.button}> 
+                <Icon name="check"style={{ fontSize: hp(2.2), color: '#fff' }} /> 
+              </TouchableOpacity>
+            :
+              <TouchableOpacity style={styles.button}> 
+                <Icon name="plus"style={{ fontSize: hp(2.2), color: '#fff' }} /> 
+              </TouchableOpacity>
+          }
+          
         </View>
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
         <Text style={{ color: '#00a680', fontSize: hp(2), fontWeight: 'bold' }}>$/. 70.00</Text>
-        <TouchableOpacity style={{ backgroundColor: '#00a680', padding: wp(2.3), borderRadius: wp(1) }}>
-          <Icon 
-            name="plus"
-            style={{ fontSize: hp(1.8), color: '#fff' }}
-          />
-        </TouchableOpacity>
       </View>
     </View>
   )
@@ -96,7 +107,7 @@ const ProductsScreen = () => {
         keyExtractor={item => item.id}
         renderItem={({ item }) => 
         <TouchableOpacity>
-          <Text style={[{ paddingHorizontal: wp(3), fontSize: hp(1.8) }, item.id === '1' ? styles.linkActive : null]}>{ item.title }</Text>
+          <Text style={[{ paddingHorizontal: wp(3), fontSize: hp(2) }, item.id === '1' ? styles.linkActive : null]}>{ item.title }</Text>
         </TouchableOpacity>   
         }
       />
@@ -116,7 +127,11 @@ const styles = StyleSheet.create({
   linkActive: {//COLOR PARA EL LINK DE CATEGORIAS
     color: '#00a680',
     fontWeight: 'bold'
-  }
+  },
+  productSelected: {
+    backgroundColor: '#8fd9b4'
+  },
+  button: { backgroundColor: '#00a680', alignSelf: 'flex-start', paddingHorizontal: wp(2.9), paddingVertical: wp(2.6), borderRadius: wp(100), marginLeft: wp(2), marginTop: wp(-3) }
 })
 
 export default ProductsScreen

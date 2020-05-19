@@ -27,7 +27,7 @@ const shadow = {
 //data
 const data = [
   {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    id: '1',
     title: 'Pizzería El HORCON',
   },
   {
@@ -43,7 +43,14 @@ const data = [
 //COMPONENTE
 const Bussine = ({ bussine }) => {
   return (
-    <View style={{ backgroundColor: '#fff', marginBottom: wp(2), ...shadow, height: wp(60) }}>
+    <View style={{ backgroundColor: '#fff', marginBottom: wp(2), ...shadow, height: wp(60), position: 'relative' }}>
+      {
+        // FONDO TRANSPARENTE QUE SE ACTIVA AL ESTAR BLOQUEDO EL NEGOCIO
+        bussine.id === '1' ? 
+          <View style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)', position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, zIndex: 999 }}></View>
+        :
+          null
+      }
       <Image
         style={{ height: '70%', resizeMode: 'cover' }}
         source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTNk7BKyAVFtcsnP7ykx1xECUQ2v0-kJ3sNK2HLbIQl4LHtBxoB&usqp=CAU' }} 
@@ -60,14 +67,13 @@ const Bussine = ({ bussine }) => {
           </View>
           <Text style={{ fontSize: hp(1.8), color: '#999'}}>10:00 a.m a 09:00 p.m</Text>
         </View>
-        <TouchableOpacity 
-          style={{ padding: wp(2) }}
-
-        >
-          <Icon
-            style={{ fontSize: hp(3), color: '#1B5050'}}
-            name="door-open"
-          />
+        <TouchableOpacity style={{ padding: wp(2) }} onPress={() => alert('JR SE LA COME ENTERA')}>
+          {
+            bussine.id === '1' ?
+              <Icon style={{ fontSize: hp(4), color: '#1B5050'}} name="lock"/>
+            :
+              <Icon style={{ fontSize: hp(4), color: '#1B5050'}} name="door-open"/>
+          }
         </TouchableOpacity>
       </View> 
     </View>
