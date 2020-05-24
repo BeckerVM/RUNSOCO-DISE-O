@@ -26,11 +26,25 @@ const Pedido = () => {
   return (
     <View MENSAJE="ESTA ES UN CARD">
         <View style={{ marginTop: wp(6), flexDirection: 'row', justifyContent: 'center', width: wp(95), alignSelf: 'center' }}>
-          <TouchableOpacity style={[styles.btn, { backgroundColor: '#00a680', marginRight: wp(5), borderRadius: 0 }]}>
+          <View style={[styles.btn, { backgroundColor: '#00a680', marginRight: wp(5), borderRadius: 0 }]}>
             <Text style={{ color: '#fff' , fontSize: hp(2.2) }}>Mi pedido</Text>
-          </TouchableOpacity>
+          </View>
         </View>
         <View style={styles.card}>
+          <View 
+            MENSAJE="ESTE VIEW VAS A OCULTAR CON LA CONDICIONAL CORRESPONDIENTE CUANDO YA ESTA CONFIRMADO POR EL ADMIN"
+            style={styles.backgroundConfirmation}
+          >
+            <Image  
+              source={{ uri: 'https://d338t8kmirgyke.cloudfront.net/icons/icon_pngs/000/003/037/original/notification.png' }} 
+              style={{ width: wp(30), height: wp(30), resizeMode: 'contain' }}
+            />
+            <View style={{ backgroundColor: '#ecf8f5', width: wp(80), padding: wp(2), borderRadius: wp(2) }}>
+              <Text style={{ fontSize: hp(1.9), textAlign: 'center' }}>
+                Su pedido esta en proceso por uno de nuestro administradores, le enviaremos una notificacion para confirmale.
+              </Text>
+            </View>
+          </View>
           <View>
             <View style={{ paddingVertical: wp(2), flexDirection: 'row', alignItems: 'center', borderBottomWidth: wp(.2), borderBottomColor: '#999'}}>
               <Text style={{ color: '#00a680', fontSize: hp(2.3), marginRight: wp(2) }}>
@@ -89,6 +103,9 @@ const Pedido = () => {
           <View style={styles.lineBlue}></View> 
         </View>
         <View style={{ marginTop: wp(6), flexDirection: 'row', justifyContent: 'center', width: wp(95), alignSelf: 'center' }}>
+          {
+            // AL BOTOM LE PUEDES PONER UN DISABLE SEGUN LA CONDICION, AL DE ABAJO
+          }
           <TouchableOpacity style={[styles.btn, { backgroundColor: '#00a680', marginRight: wp(5) }]}>
             <Text style={{ color: '#fff' , fontSize: hp(2.2) }}>Continuar</Text>
           </TouchableOpacity>
@@ -119,7 +136,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     width: wp(95),
     ...shadow,
-    padding: wp(3),
+    paddingHorizontal: wp(3),
     borderRadius: wp(.5),
     position: 'relative',
     alignSelf: 'center',
@@ -150,6 +167,17 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: hp(1.9)
+  },
+  backgroundConfirmation: {
+    backgroundColor: 'rgba(0, 0, 0, .4)',
+    position: 'absolute',
+    width: wp(95),
+    height: '100%',
+    top: 0,
+    left: 0,
+    zIndex: 999,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 })
 

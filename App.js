@@ -20,7 +20,9 @@ import PedidoScreen from './screens/PedidoScreen'
 import CategoriesScreen from './screens/CategoriesScreen'
 //ULTIMA SCREEN AÑADIDA
 import MessageScreen from './screens/MessageScreen'
+//AGREGADO EL 24-05-2020
+import Message2Screen from './screens/Message2Screen'
 
 export default App = () => {
-  return <MessageScreen />
+  return <Message2Screen />
 }
